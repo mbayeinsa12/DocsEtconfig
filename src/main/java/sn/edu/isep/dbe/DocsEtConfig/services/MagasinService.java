@@ -30,4 +30,7 @@ public class MagasinService {
     public void supprimerMagasin(Integer id){
         magasinRepository.deleteById(id);
     }
+    public Optional<Magasin> magasinParNom(String nom){
+        return magasinRepository.findByNom(nom);
+    }
 }

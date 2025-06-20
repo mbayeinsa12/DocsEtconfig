@@ -14,7 +14,11 @@ public class Magasin {
     private Integer id;
     @Column(nullable = false)
     private String nom;
+    @Column(nullable = false)
     private String adresse;
-    private String description;
+
+    @Column(nullable = false)
+//    private String description;
+
     private String Telephone;
 }
