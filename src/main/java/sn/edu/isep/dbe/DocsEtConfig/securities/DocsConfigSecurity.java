@@ -8,11 +8,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class DocsConfigSecurity {
+
+    private final DocsEtConfigSecurityFilter docsEtConfigSecurityFilter;
+
+    public DocsConfigSecurity(DocsEtConfigSecurityFilter docsEtConfigSecurityFilter) {
+        this.docsEtConfigSecurityFilter = docsEtConfigSecurityFilter;
+    }
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
@@ -23,11 +30,12 @@ public class DocsConfigSecurity {
                             .requestMatchers("/swagger-ui/**").permitAll()
                             .requestMatchers("/v3/api-docs/**").permitAll()
                             .requestMatchers("/auth/**").permitAll()
-                            .anyRequest().permitAll();
+                            .anyRequest().authenticated();
                 })
                 .sessionManagement(session->{
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                 })
+                .addFilterBefore(docsEtConfigSecurityFilter, UsernamePasswordAuthenticationFilter.class)
                 ;
 
 
