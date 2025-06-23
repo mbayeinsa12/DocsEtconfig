@@ -39,6 +39,7 @@ public class MagasinController {
 
     )
     public List<Magasin> getAllMagasins() {
+        System.out.println("&&&&& Lister magasin");
         return magasinService.getAllMagasins();
     }
     @GetMapping("/{id}")
