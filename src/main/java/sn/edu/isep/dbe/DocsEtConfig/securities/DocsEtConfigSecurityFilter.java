@@ -32,8 +32,9 @@ private final Logger logger = LoggerFactory.getLogger("MySecurityFilter");
     }
     logger.error("requete sur url"+request.getRequestURI());
         List<GrantedAuthority> roles = List.of(
-                new SimpleGrantedAuthority("suppMag"),
-                new SimpleGrantedAuthority("ROLE_USER"),
+                new SimpleGrantedAuthority("suppMag"),//droit
+                new SimpleGrantedAuthority("ROLE_USER"),//role
+                new SimpleGrantedAuthority("ROLE_MANAGER"),//role
                 new SimpleGrantedAuthority("ROLE_ADMIN"));
     SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(
             "Abdou Fall", "insa@isepat.edu.sn",roles
