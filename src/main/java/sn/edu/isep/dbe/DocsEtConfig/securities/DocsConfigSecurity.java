@@ -36,7 +36,7 @@ public class DocsConfigSecurity {
                             .requestMatchers(HttpMethod.DELETE,"/api/v1/magasins").hasAuthority("suppMag")
                             .requestMatchers(HttpMethod.POST,"/api/v1/magasins").hasAnyRole("USER","ADMIN")
                             .requestMatchers(HttpMethod.PUT,"/api/v1/magasins").hasRole("MANAGER")
-                            .anyRequest().authenticated();      
+                            .anyRequest().authenticated();
                 })
                 .sessionManagement(session->{
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
