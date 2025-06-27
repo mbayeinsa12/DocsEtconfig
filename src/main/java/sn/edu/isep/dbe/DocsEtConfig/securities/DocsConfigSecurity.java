@@ -34,7 +34,7 @@ public class DocsConfigSecurity {
                             .requestMatchers("/api/v1/magasins").hasRole("USER")//doit avoir le role user
                             .requestMatchers(HttpMethod.GET,"/api/v1/magasins").hasRole("USER")
                             .requestMatchers(HttpMethod.DELETE,"/api/v1/magasins").hasAuthority("suppMag")
-                            .requestMatchers(HttpMethod.POST,"/api/v1/magasins").hasAnyRole("USER","ADMIN")
+                            .requestMatchers(HttpMethod.POST,"/api/v1/magasins").hasAnyRole("MANAGER","ADMIN")
                             .requestMatchers(HttpMethod.PUT,"/api/v1/magasins").hasRole("MANAGER")
                             .anyRequest().authenticated();
                 })

@@ -55,7 +55,7 @@ public class InitUser implements CommandLineRunner {
                 .prenom("Yacine").nom("toure")
                 .nom("fall")
                 .password("mbaye2005##$$")
-                .email("insam621.com@gmail.com")
+                .email("insam.com@gmail.com")
                 .roles(List.of(userRole,adminRole))
                 .droits(List.of(creerMagasin,suppMag))
                 .build();
@@ -64,7 +64,7 @@ public class InitUser implements CommandLineRunner {
                 .prenom("Lamine")
                 .nom("Camara")
                 .password("mbaye2005##$$")
-                .email("insam621.com@gmail.com")
+                .email("insa.com@gmail.com")
                 .roles(List.of(userRole,adminRole))
                 .droits(List.of(creerMagasin,suppMag))
                 .build();
