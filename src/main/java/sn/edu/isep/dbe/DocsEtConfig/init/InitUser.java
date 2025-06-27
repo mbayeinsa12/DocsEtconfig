@@ -1,6 +1,7 @@
 package sn.edu.isep.dbe.DocsEtConfig.init;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import sn.edu.isep.dbe.DocsEtConfig.entities.Droit;
 import sn.edu.isep.dbe.DocsEtConfig.entities.Role;
@@ -12,6 +13,7 @@ import sn.edu.isep.dbe.DocsEtConfig.repositories.UserRepository;
 import java.util.List;
 
 @Component
+@Order(1)
 public class InitUser implements CommandLineRunner {
 
     private final DroitRepository droitRepository;

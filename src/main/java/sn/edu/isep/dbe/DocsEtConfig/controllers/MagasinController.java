@@ -8,10 +8,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import sn.edu.isep.dbe.DocsEtConfig.entities.Magasin;
+import sn.edu.isep.dbe.DocsEtConfig.entities.User;
 import sn.edu.isep.dbe.DocsEtConfig.services.MagasinService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,7 +85,17 @@ public class MagasinController {
     }
         }
         @PostMapping
-    public ResponseEntity ajoutNouvelMagasin(@RequestBody Magasin magasin) {
+    public ResponseEntity ajoutNouvelMagasin(@RequestBody Magasin magasin, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+
+        String login=(String) authentication.getCredentials();
+        Collection<? extends GrantedAuthority> droits= authentication.getAuthorities();
+            System.out.println("Enregistrement de nouvel magasin");
+            System.out.println("login : "+login);
+            System.out.println("les droits sont" +droits);
+            System.out.println("le user est"+user);
+            System.out.println("le magasin est"+magasin);
+            magasin.setCreateur(user);
         if (magasin.getId()!=null){
             return ResponseEntity.status(600).body("l'id est obligatoire");
 

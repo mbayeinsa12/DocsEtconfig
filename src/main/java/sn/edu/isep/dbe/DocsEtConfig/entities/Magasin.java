@@ -21,4 +21,18 @@ public class Magasin {
 //    private String description;
 
     private String Telephone;
+
+    @ManyToOne
+    @JoinColumn(name = "cree_par",nullable=false)
+    private User createur;
+
+    @Override
+    public String toString() {
+        return "Magasin{" +
+                "Telephone='" + Telephone + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", nom='" + nom + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

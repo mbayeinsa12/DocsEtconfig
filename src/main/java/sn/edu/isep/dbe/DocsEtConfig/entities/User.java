@@ -35,6 +35,20 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Role> roles;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "adresse='" + adresse + '\'' +
+                ", droits=" + droits +
+                ", roles=" + roles +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Droit> droits;
 
