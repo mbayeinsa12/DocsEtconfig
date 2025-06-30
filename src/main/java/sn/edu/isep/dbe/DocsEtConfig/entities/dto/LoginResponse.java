@@ -2,6 +2,7 @@ package sn.edu.isep.dbe.DocsEtConfig.entities.dto;
 
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,6 +17,8 @@ public class LoginResponse {
     private String token;
     private List<String> roles;
     private List<String> droits;
+    private Date dateExpiration;
+    private Date notBefore;
 
     @Override
     public String toString() {

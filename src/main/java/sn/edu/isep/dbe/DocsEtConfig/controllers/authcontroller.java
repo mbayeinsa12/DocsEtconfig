@@ -7,7 +7,7 @@ import sn.edu.isep.dbe.DocsEtConfig.entities.dto.LoginResponse;
 import sn.edu.isep.dbe.DocsEtConfig.services.UserService;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("api/v1/auth")
 public class authcontroller {
 
     private final UserService userService;
@@ -27,7 +27,7 @@ public class authcontroller {
         LoginResponse loginResponse = userService.login(loginRequest.getLogin(), loginRequest.getPassword());
 
         System.out.println("loginResponse="+loginResponse);
-        if (loginResponse != null) {
+        if (loginResponse == null) {
             return ResponseEntity.status(450).body("Le login ou le mot de passe est incorrecte");
         }
         else{
