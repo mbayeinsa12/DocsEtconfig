@@ -48,7 +48,7 @@ public class InitUser implements CommandLineRunner {
         User abdou= User.builder()
                 .prenom("abdou")
                 .nom("fall")
-                .password("mbaye2005##$$")
+                .password("mbaye2005")
                 .email("insam621.com@gmail.com")
                 .roles(List.of(userRole,adminRole))
                 .build();

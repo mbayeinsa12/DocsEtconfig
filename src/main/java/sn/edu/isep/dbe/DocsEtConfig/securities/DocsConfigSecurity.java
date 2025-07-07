@@ -16,9 +16,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 public class DocsConfigSecurity {
 
-    private final DocsEtConfigSecurityFilter docsEtConfigSecurityFilter;
+    private final DocsAndConfigSecurityFilter docsEtConfigSecurityFilter;
 
-    public DocsConfigSecurity(DocsEtConfigSecurityFilter docsEtConfigSecurityFilter) {
+    public DocsConfigSecurity(DocsAndConfigSecurityFilter docsEtConfigSecurityFilter) {
         this.docsEtConfigSecurityFilter = docsEtConfigSecurityFilter;
     }
 
@@ -30,7 +30,7 @@ public class DocsConfigSecurity {
                     authorizeRequest
                             .requestMatchers("/swagger-ui/**").permitAll()
                             .requestMatchers("/v3/api-docs/**").permitAll()
-                            .requestMatchers("/auth/**").permitAll()
+                            .requestMatchers("/api/v1/auth/**").permitAll()
                             .requestMatchers("/api/v1/magasins").hasRole("USER")//doit avoir le role user
                             .requestMatchers(HttpMethod.GET,"/api/v1/magasins").hasRole("USER")
                             .requestMatchers(HttpMethod.DELETE,"/api/v1/magasins").hasAuthority("suppMag")
