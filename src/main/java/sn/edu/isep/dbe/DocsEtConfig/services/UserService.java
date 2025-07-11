@@ -10,7 +10,7 @@ public class UserService {
         boolean isAuthenticated = authenticateUser(username, password);
         if (isAuthenticated) {
             // Créer une réponse avec un token fictif pour l'exemple
-            return new LoginResponse("token_example", username, "USER");
+            return new LoginResponse("qwertyuiopasdfghjklzxcvbnm122", username, "USER");
         }
         return null;
     }
