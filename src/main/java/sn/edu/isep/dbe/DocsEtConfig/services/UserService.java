@@ -1,10 +1,18 @@
 package sn.edu.isep.dbe.DocsEtConfig.services;
 
 import org.springframework.stereotype.Service;
+import sn.edu.isep.dbe.DocsEtConfig.entities.User;
 import sn.edu.isep.dbe.DocsEtConfig.entities.dto.LoginResponse;
+import sn.edu.isep.dbe.DocsEtConfig.repositories.UserRepository;
 
 @Service
 public class UserService {
+
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public LoginResponse login(String username, String password) {
         boolean isAuthenticated = authenticateUser(username, password);
@@ -18,5 +26,9 @@ public class UserService {
     public boolean authenticateUser(String username, String password) {
         // Logique d'authentification à implémenter
         return true; // Temporaire pour test
+    }
+
+    public void save(User user) {
+        userRepository.save(user);
     }
 }

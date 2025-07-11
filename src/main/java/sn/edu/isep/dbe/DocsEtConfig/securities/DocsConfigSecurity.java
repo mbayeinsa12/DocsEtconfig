@@ -30,6 +30,7 @@ public class DocsConfigSecurity {
                     authorizeRequest
                             .requestMatchers("/swagger-ui/**").permitAll()
                             .requestMatchers("/v3/api-docs/**").permitAll()
+                            .requestMatchers("/api/v1/inscription").permitAll()
                             .requestMatchers("/api/v1/auth/**").permitAll()
                             .requestMatchers("/api/v1/magasins").hasRole("USER")//doit avoir le role user
                             .requestMatchers(HttpMethod.GET,"/api/v1/magasins").hasRole("USER")

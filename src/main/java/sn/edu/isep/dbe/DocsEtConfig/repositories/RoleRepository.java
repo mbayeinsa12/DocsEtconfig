@@ -6,5 +6,5 @@ import sn.edu.isep.dbe.DocsEtConfig.entities.Role;
 import java.util.Optional;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
-    Optional<Role> findByNom(String nom);
+    Optional<Role> findByName(String nom);
 }

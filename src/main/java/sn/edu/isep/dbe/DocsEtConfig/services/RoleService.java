@@ -19,7 +19,11 @@ public class RoleService {
     public List<Role>findAll(){
         return roleRepository.findAll();
     }
-    public Optional<Role> findByNom(String nom) {
-        return roleRepository.findByNom(nom);
+    public Optional<Role> findByName(String nom) {
+        return roleRepository.findByName(nom);
     }
+
+//  public Optional<Role> findByNom(String nom){
+//        return roleRepository.findByNom(nom);
+//  }
 }
